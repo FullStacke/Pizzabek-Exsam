@@ -1,0 +1,220 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizzabek</title>
+  <!-- css  -->
+  <link rel="stylesheet" href="./css/main.css">
+  <!-- links -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <!-- message -->
+  <div class="message-modal_field hidden">
+    <div class="message-modal">
+      <span class="messageClose">&times;</span>
+      <h3 class="message"></h3>
+    </div>
+  </div>
+  
+  <!-- loader -->
+  <div class="loader hidden">
+    <div class="ring">
+      
+    </div>
+  </div>
+
+
+  <!-- modal -->
+  <div id="modal-overlay" class="modal-overlay hidden ">
+    <span class="close">&times;</span>
+
+    <div class="modal-container">
+      <div class="modal">
+        <div class="arrow">
+          <i class="fa-solid fa-arrow-left"></i>
+        </div>
+        <div class="modal-img">
+          <img id="modalImg" width="100%">
+        </div>
+        <div class="modal-right">
+          <div class="modal-right__text">
+            <h6 class="modalTitle">
+            </h6>
+            <p class="modalText">
+            </p>
+          </div>
+          <div class="pitsalar">
+            <h4>Pitsa kattaligi</h4>
+            <div class="pitsalar-count">
+              <span class="minus" onclick="minusBtn()"><img src="./img/minuscirlce.svg" alt="minus"></span>
+              <div class="pitsalar-soni">
+                <span class="pitsalar-soni__num">0</span> - <span>ta</span>
+              </div>
+              <span class="plus" onclick="plusBtn()"><img src="./img/addcircle.svg" alt="plus"></span>
+            </div>
+            <div class="pitsalar-fill">
+              <span class=" fill" onclick="selectFil()">
+                O'rtacha
+              </span>
+              <span class="fill" onclick="selectFil()">
+                Qalin
+              </span>
+            </div>
+            <div class="pitsalar-price_btn">
+              <span class="pitsalar-price">
+                
+              </span>
+              <span class="pitsalar-price2 hidden" >
+               
+              </span>
+    
+              <button type="button" class="addBtn">
+                
+                  Savatga qo'shish
+               
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>  
+  
+  
+    </div>
+
+  </div>
+
+<!-- products  -->
+  <div class="wrapper ">
+    <!-- header -->
+    <div class="container">
+      <header id="header">
+        <div class="header-left">
+          <div class="header-logo"><img src="/client/img/div.header__logo.svg" alt="logo"></div>
+          <div class="header-search">
+            <i class="fa-solid fa-magnifying-glass" ></i>   <input type="text" placeholder="Pitsalarni qidirish" id="search">
+          </div>
+        </div>
+        <div class="karzinka-btn">
+          <div class="all-price">
+            <span class="counter"></span>
+            <span class="valyuta">UZS</span>
+          </div>
+          <div class="karzinka-btn__icon">
+            <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
+            <span class="products">0</span>
+          </div>
+        </div>
+      </header>
+    </div>
+    <!-- main -->
+    <main>
+      <div class="container">
+        <section class="tab">
+        </section>
+      </div>
+  
+      <div class="container">
+        <section class="all-pizza">
+          <div class="title">
+            <h2>
+            Barcha pitsalar
+            </h2>
+          </div>
+          <div class="pizza-cards item">
+  
+          </div>
+          <div class="goshtli item hidden">
+  
+          </div>
+  
+          <div class="pishloqli item hidden">
+  
+          </div>
+  
+          <div class="qoziqornli item hidden">
+  
+          </div>
+  
+          <div class="achiq item hidden">
+  
+          </div>
+  
+
+        </section>
+      </div>
+    </main>
+  </div>
+
+<!-- karzinka  -->
+  <div class="container">
+    <div class="karzinka hidden">
+    <header id="header">
+      <div class="header-left">
+        <div class="header-logo"><img src="/client/img/div.header__logo.svg" alt="logo"></div>
+      </div>
+      <button type="button" class="order-btn">
+       <a href="#" class="buyrtmaQilish">
+        Buyurtma qilish
+       </a>
+      </button>
+    </header>
+<div class="karzinka-buyrtma hidden">
+
+    <div class="karzinka-buyrtma__items">
+
+    </div>
+
+    <div class="karzinka-buyrtma__operation">
+    <div class="karzinka-buyrtma__operation-text">
+      <h3>Buyurtma qilish</h3>
+      <p>promokod kiriting va 50.000 UZS bonus oling</p>
+    </div>
+    <div class="karzinka-buyrtma__operation-promo">
+      <h4>Umumiy summa: <span class="okanchatilniSumma"> 150.000</span> <span> UZS</span></h4>
+      <input type="text" class="promokod-input" placeholder="Promokod kiriting">
+      <button class="saleBtn" type="button">
+        <a href="#" type="" >
+          Xaridni tasdiqlang
+        </a>
+      </button>
+    </div>
+    </div>
+</div>
+
+<div class="empty hidden">
+<div class="empty-text">
+  <h3>
+    Savatcha bo’sh😕
+  </h3>
+  <p>
+    Siz hali pitsa buyurtma qilmagan bo'lsangiz kerak.
+    Pitsaga buyurtma berish uchun asosiy sahifaga o'ting.
+  </p>
+</div>
+<img src="./img/empty-cart.db905d1f4b063162f25b.png.png" alt="empty">
+<button type="button" class="emptyBtn">
+  <a href="#" class="closekarzinka">
+    Ortga qaytish
+  </a>
+</button>
+</div>
+
+</div>
+</div>
+
+
+
+
+<script src="./constants/root.js"></script>
+<script src="./components/Header/header.js"></script>
+<script src="./components/Tab_menu/tabs.js"></script>
+<script src="./components/Cards/cards.js"></script>
+<script src="./components/Modal/modal.js"></script>
+<script src="./utils/locolStorage.js"></script>
+<script src="./components/karzinka/karzinka.js"></script>
+<script src="./constants/request.js"></script>
+</body>
+</html>

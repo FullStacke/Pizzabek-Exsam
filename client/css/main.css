@@ -1,0 +1,1075 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;800;900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Nunito:wght@100;200;300;400;500;600;800;900&display=swap);
+
+:root{
+  --background-color:#FFDF8C;
+  --content-color:#fff;
+  --karzinka-color:#FE5F1E;
+  --price-card-color:#EBEBEB;
+  --sort-active-color:#282828;
+  --text-color:#232323;
+  --btn-color:#006F4C;
+  --btn-color2:#232323;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--background-color);
+  font-family: 'Inter', sans-serif;
+  font-family: 'Nunito', sans-serif;
+}
+
+.container{
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.hidden{
+  display: none !important;
+}
+
+.active{
+  transition:background 1s linear;
+  background-color: var(--sort-active-color) !important;
+  color: #fff !important; 
+}
+
+/* loader */
+.loader{
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  /* background: linear-gradient(90deg,rgba(131,58,100,1) 0%, rgba(253,29,25,1) 46%, rgba(252,176,69,1) 100%); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  transition: all .5s ease;
+  z-index: 10000;
+}
+.ring{
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid black;
+  border-radius: 50%;
+  position: relative;
+}
+.ring::after{
+position: absolute !important;
+content: '';
+width: 100%;
+height: 100%;
+border: 5px solid yellow;
+border-radius: 50%;
+border-top-color: transparent;
+animation: rotate 1.5s linear infinite;
+}
+@keyframes rotate{
+  100%{
+    transform: rotate(360deg);
+  }
+}
+/* header  style*/
+
+#header{
+  width: 100%;
+  background-color: var(--content-color);
+  border-radius: 10px 10px 0px 0px;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 41px 70px;
+}
+@media only screen and (max-width:1000px){
+  #header{
+    flex-direction: column;
+    justify-content: center !important;
+    gap: 40px;
+  }
+  .header-left{
+    flex-direction: column;
+  }
+}
+.header-logo{
+  cursor: pointer;
+}
+.header-left{
+  display: flex;
+  align-items: center;
+  gap: 90px;
+}
+.header-search{
+box-sizing: border-box;
+width: 400px;
+height: 48px;
+background: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 10px;
+display: flex;
+align-items: center;
+gap: 13px;
+padding: 15px 17px;
+}
+.header-search i{
+  opacity: 0.6;
+}
+.header-search input{
+  border:none;
+  width: 90%;
+  height: 100%;
+  padding: 3px 10px;
+  outline: none;
+}
+.header-search input:focus{
+  outline: none;
+}
+.karzinka-btn{
+  width: 170px;
+  height: 45px;
+  padding: 20px !important;
+  background: #FE5F1E;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.all-price{
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 23px;
+  text-align: center;
+  color: #FFFFFF;
+  padding-right:7px;
+  padding-left: 10px;  
+  border-right: 1px solid rgba(255 , 255, 255, 0.5);
+}
+.karzinka-btn__icon{
+  display: flex;
+  padding-right:10px;
+  padding-left: 10px;
+  align-items: center;
+  gap: 8px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 23px;
+  text-align: center;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+/* tabs style */
+
+.tab{
+  width: 100%;
+  background-color: var(--content-color);
+  padding: 41px 70px;
+}
+.tabs{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+}
+.tabs-item{
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+width: 123.69px;
+height: 48px;
+border-radius: 30px;
+background: #F9F9F9;
+cursor: pointer;
+}
+
+/* pizza cards style */
+.all-pizza{
+  width: 100%;
+  background-color: var(--content-color);
+  padding: 30px 70px;
+}
+.title{
+  margin-bottom: 49px
+}
+.title h2{
+font-weight: 800;
+font-size: 38px;
+line-height: 30px;
+display: flex;
+align-items: center;
+color: var(--text-color);
+}
+.goshtli,
+.pishloqli,
+.qoziqornli,
+.achiq,
+.pizza-cards{
+  /* display: grid; */
+  background: #F8F7F9;
+  /* grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); */
+  /* grid-gap: 16px; */
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding:10px;
+  margin-bottom: 70px;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  transition: all 0.5s linear;
+}
+.piza-cards__items{
+background: #FFFFFF;
+box-shadow: 5px 2px 30px rgba(210, 208, 215, 0.3);
+border-radius: 10px;
+width: 250px;
+height: 370px;
+display: flex;
+align-items: center;
+flex-direction: column;
+z-index: 10;
+cursor: pointer;
+transition: all .4s linear;
+}
+.piza-cards__items:hover{
+  transform: scale(1.009);
+  border-left: 5px solid #777777;
+  border-bottom: 1px solid #777777;
+  
+}
+.piza-cards__items-img{
+  width: 100%;
+  margin-bottom: 10px;
+}
+.piza-cards__items-img img{
+  width: 100%;
+}
+
+.piza-cards__items-text{
+  height: 100px;
+  padding: 20px;
+
+}
+
+.modal-right__text h6, 
+.piza-cards__items-text h6{
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  color: var(--text-color);
+}
+.modal-right__text p,
+.piza-cards__items-text p{
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  color: #828282;
+  margin-top: 5px;
+  opacity: 0.7;
+}
+.piza-cards__items div:last-of-type{
+  width: 100%;
+  margin-top: 30px !important;
+  padding: 0px 20px;
+}
+.btn-price{
+  border: none;
+  outline: none;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 8px 17.7188px 8px 12px;
+  width: 120.72px;
+  height: 30px;
+  background: #EBEBEB;
+  border-radius: 7px;
+  font-size: 15px;
+  line-height: 14px;
+  color: #000000;
+  gap: 10px;
+}
+/* modal and overlay style  */
+
+.modal-overlay{
+  width: 100% !important;
+  height: 100% !important;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* .modal-img{
+} */
+.modal-img img{
+border-radius: 50%;
+object-fit: cover;
+animation: rotating 7s linear infinite;
+}
+@keyframes rotating{
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+.close{
+  width: 30px;
+  font-size: 40px;
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal{
+height: 500px;
+width: 700px;
+background: #FFFFFF;
+box-shadow: 0px 3px 15px rgba(217, 217, 217, 0.3);
+border-radius: 32px;
+display: flex;
+align-items: center;
+padding: 25px 20px;
+position: relative;
+gap: 20px;
+}
+.arrow{
+  position: absolute;
+  top: 36px;
+  left: 26px;
+  font-size: 21px;
+  color: var(--karzinka-color);
+  cursor: pointer;
+}
+.modal-right__text{
+  margin-bottom: 52px;
+}
+.pitsalar-count{
+box-sizing: border-box;
+width: 325px;
+height: 40px;
+background: #F4F4F4;
+border: 1px solid #F4F4F4;
+border-radius: 100px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 5px 15px;
+margin-top: 5px;
+margin-bottom: 10px;
+}
+.minus,
+.plus{
+width: 62px;
+height: 25px;
+padding: 3px 0px;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+background: #FFFFFF;
+box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.06);
+border-radius: 100px;
+cursor: pointer;
+}
+
+.pitsalar-fill{
+width: 325px;
+height: 40px;
+background: #F4F4F4;
+border: 1px solid #F4F4F4;
+border-radius: 100px;
+display: flex;
+align-items: center;
+justify-content: space-around;
+margin-bottom: 30px;
+}
+
+.pitsalar-fill span{
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 100px;
+  width: 155px;
+  padding: 5px 0px;
+  text-align: center;
+  cursor: pointer;
+}
+.pitsalar-fill__active{
+background: #FFFFFF;
+}
+.pitsalar-price_btn{
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.pitsalar-price{
+font-weight: 700;
+font-size: 17px;
+line-height: 18px;
+display: flex;
+align-items: center;
+color: #000000;
+}
+.pitsalar-soni{
+gap: 2px;
+font-weight: 700;
+font-size: 18px;
+line-height: 18px;
+display: flex;
+align-items: center;
+color: #000000;
+
+}
+.addBtn{
+display: flex;
+flex-direction: row;
+width: 179.72px;
+height: 45px;
+background: #006F4C;
+border-radius: 100px;
+border: none;
+outline: none;
+cursor: pointer;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+align-items: center;
+text-align: center;
+color: #FFFFFF;
+justify-content: center;
+}
+
+
+/* karzinka style  */
+.karzinka{
+width: 100%;
+background: #FFFFFF;
+border-radius: 10px 10px 0px 0px;
+}
+
+.order-btn{
+width: 171px;
+height: 53px;
+background: #FE5F1E;
+border-radius: 30px;
+border: none;
+outline: none;
+cursor: pointer;
+}
+.order-btn a{
+font-weight: 400;
+font-size: 19px;
+line-height: 23px;
+display: flex;
+align-items: center;
+text-align: center;
+justify-content: center;
+color: #FFFFFF;
+text-decoration: none;
+}
+.karzinka-buyrtma{
+  display: flex;
+  gap: 100px;
+  padding-bottom: 50px !important;
+}
+.karzinka-buyrtma__items{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 10px;
+}
+.karzinka-buyrtma__item{
+  display: flex;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: space-between;
+  width: 779px;
+  height: 150px;
+  padding: 10px;
+}
+.karzinkaImg{
+  object-fit: cover;
+  width: 300px;
+  height: 300px;
+}
+.karzinka-buyrtma__item-left{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.karzinka-buyrtma__item-left img{
+  width: 130px;
+  height: 130px;
+}
+.karzinka-buyrtma__item-left__text h6{
+font-weight: 400;
+font-size: 18px;
+line-height: 17px;
+display: flex;
+align-items: center;
+color: #000000;
+margin-bottom: 5px;
+}
+.karzinka-buyrtma__item-left__text p{
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  color: #474747;
+}
+.karzinka-buyrtma__item-righ__counter{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.karzinka-buyrtma__operation{
+  margin-top: 40px;
+}
+.karzinka-buyrtma__operation-text{
+  margin-bottom: 75px;
+}
+.karzinka-buyrtma__operation-text p{
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  color: #828282;
+  margin-top: 5px;
+}
+.karzinka-buyrtma__operation-promo{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.karzinka-buyrtma__operation-promo h4{
+  font-weight: 600;
+}
+.karzinka-buyrtma__operation-promo h4 span{
+  color: #006F4C;
+}
+.karzinka-buyrtma__operation-promo input{
+width: 323px;
+height: 48px;
+background: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 10px;
+padding: 5px 14px;
+outline: none;
+}
+.saleBtn{
+display: flex;
+flex-direction: row;
+align-items:center;
+padding: 13px 30.7188px 15px 29px;
+width: 325px;
+justify-content: center;
+height: 45px;
+background: #006F4C;
+border-radius: 100px;
+border: none;
+outline: none;
+}
+.saleBtn a{
+text-decoration: none;
+font-weight: 600;
+font-size: 19px;
+line-height: 17px;
+display: flex;
+align-items: center;
+text-align: center;
+color: #FFFFFF;
+}
+
+.empty{
+  width: 100%;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  flex-direction: column;
+}
+.empty-text{
+  text-align: center;
+  margin-bottom: 45px;
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.empty-text h3{
+font-weight: 700;
+font-size: 36px;
+line-height: 30px;
+display: flex;
+align-items: center;
+text-align: center;
+color: #232323;
+margin-bottom: 8px;
+}
+.empty-text p{
+font-weight: 400;
+font-size: 20px;
+line-height: 29px;
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.2px;
+color: #777777;
+}
+.empty img{
+  object-fit: cover;
+}
+.emptyBtn{
+width: 230px;
+height: 52px;
+background: #232323;
+border-radius: 30px;
+border: none;
+outline: none;
+margin: 60px 0px;
+}
+.emptyBtn a{
+font-weight: 600;
+font-size: 18px;
+line-height: 25px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #FFFFFF;
+text-decoration: none;
+}
+
+
+/* .message .modal */
+
+.message-modal_field{
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(0, 0, 0, 0.6) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed ;
+  z-index: 1000;
+}
+.message-modal{
+  width: 800px;
+  height: 250px;
+  border-radius: 20px;
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.messageClose{
+  width: 40px;
+  height: 40px;
+  font-weight: 900;
+  font-size: 35px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.message{
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.danger{
+  color: red !important;
+}
+.succes{
+  color: #006F4C !important;
+}
+
+
+
+
+
+
+/* 
+
+function PlusBtn() {
+  plus.addEventListener('click', () => {
+  const ModalPrice = document.querySelector('.pitsalar-price')
+  const  TypeNumPrice = parseInt(ModalPrice.textContent)
+     
+if (counter >= 0) {
+  counter++
+  count.textContent = counter
+  totol += TypeNumPrice
+  ModalPrice.textContent = Math.abs(totol) + '.000 ' + 'UZS'        
+} else{
+  counter++
+  
+  count.textContent = counter
+  ModalPrice.textContent = Math.abs(totol) + '.000 ' + 'UZS'        
+}
+
+})
+}
+PlusBtn()
+
+
+function minusBtn() {
+  minus.addEventListener('click', () => {
+    const ModalPrice = document.querySelector('.pitsalar-price')
+    const TypeNumPrice = parseInt(ModalPrice.textContent)
+    
+    totol -= TypeNumPrice
+      
+      counter--
+      count.textContent = counter
+
+      ModalPrice.textContent = Math.abs(totol) + '.000 ' + 'UZS'        
+  })
+  }
+  minusBtn()
+
+
+
+/*
+  e.target.classList.contains('piza-cards__items-img') ||
+  e.target.classList.contains('piza-cards__items-text') ||
+  e.target.classList.contains('cardImg')   ||
+  e.target.classList.contains('cardTitle')  ||
+  e.target.classList.contains('description') ||
+  e.target.classList.contains('btn-price') ||
+  e.target.classList.contains('btn-price__wrapper')
+
+*/
+
+
+/* function selectFil() {
+fill[0].addEventListener('click', () => {
+  fill[0].classList.add('pitsalar-fill__active')
+  fill[1].classList.remove('pitsalar-fill__active')
+})
+fill[1].addEventListener('click', () => {
+  fill[0].classList.remove('pitsalar-fill__active')
+  fill[1].classList.add('pitsalar-fill__active') 
+})
+
+}
+selectFil()
+
+ */
+
+/*
+
+
+
+// addBtn.addEventListener('click', () => {
+//   const cards = document.querySelectorAll('.pizzaCard')
+ 
+//   cards.forEach(items => {
+//     const cardsClone = items.cloneNode(true)
+//     // console.log(cardsClone);
+//     const cardsImg = cardsClone.querySelectorAll('.cardImg')
+//     const cardsTitle = cardsClone.querySelectorAll('h6')
+//     const cardsText = cardsClone.querySelectorAll('.description')
+//     const cardsPrice = cardsClone.querySelectorAll('.card-price')
+
+//     // console.log(cardsImg.src);
+//     // console.log(cardsTitle.textContent);
+//     // console.log(cardsPrice.textContent);
+//    values.title = cardsTitle.textContent;
+//    values.img = cardsImg.src;
+//    values.price = cardsPrice.textContent;
+//   })
+//   getlocol.push(values)
+//   console.log(getlocol);
+//   localStorage.setItem('list', JSON.stringify(getlocol))  
+
+//   })
+
+
+  if (fill[0].classList.contains('pitsalar-fill__active')) {
+    const karzinkaCardFill = document.querySelector('.karzinkaCardFill')
+    karzinkaCardFill.textContent = `${product.xamir[1]}`
+  } else if(fill[1].classList.contains('pitsalar-fill__active')){
+    const karzinkaCardFill = document.querySelector('.karzinkaCardFill')
+    karzinkaCardFill.textContent = `${product.xamir[0]}`
+  }
+
+
+
+
+plus.addEventListener('click', () => {
+  if (narxYeg >= 0) {
+    narxYeg++
+    count.textContent = narxYeg
+    
+  }
+})
+
+minus.addEventListener('click', () => {
+  if (narxYeg > 0) {
+    narxYeg--
+    count.textContent = narxYeg  
+  }
+})
+
+
+
+
+
+      <div class="modal">
+      <div class="arrow">
+        <i class="fa-solid fa-arrow-left"></i>
+      </div>
+      <div class="modal-img">
+        <img id="modalImg" width="100%">
+      </div>
+      <div class="modal-right">
+        <div class="modal-right__text">
+          <h6 class="modalTitle">
+          </h6>
+          <p class="modalText">
+          </p>
+        </div>
+        <div class="pitsalar">
+          <h4>Pitsa kattaligi</h4>
+          <div class="pitsalar-count">
+            <span class="minus"><img src="./img/minuscirlce.svg" alt="minus"></span>
+            <div class="pitsalar-soni">
+              <span class="pitsalar-soni__num">0</span> - <span>ta</span>
+            </div>
+            <span class="plus"><img src="./img/addcircle.svg" alt="plus"></span>
+          </div>
+          <div class="pitsalar-fill">
+            <span class="pitsalar-fill__active fill">
+              O'rtacha
+            </span>
+            <span class="fill">
+              Qalin
+            </span>
+          </div>
+          <div class="pitsalar-price_btn">
+            <span class="pitsalar-price">
+              
+            </span>
+            <button type="button" class="addBtn">
+              <a href="#">
+                Savatga qo'shish
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>  
+
+
+
+
+
+    // arrowIcon.addEventListener('click', () => {
+  // modalOverlay.classList.add('hidden')
+
+// })
+
+
+
+
+ const cards = document.querySelectorAll('.pishloqCard')
+  cards.forEach(items => {
+    const cardsClone = items.cloneNode(true)
+    const cardsImg = items.querySelector('.cardImg')
+    const cardsTitle = items.querySelector('h6')
+    const cardsText = items.querySelector('.description')
+    const cardsPrice = items.querySelector('.card-price')
+    
+    items.addEventListener('click', () => {
+      modalTitle.textContent = cardsTitle.textContent
+      modalImg.src = cardsImg.src
+      modalText.textContent = cardsText.textContent
+      ModalPrice.textContent = cardsPrice.textContent
+
+    })
+  })
+
+*/
+
+/*
+open modal examples
+
+
+pizzaCards.addEventListener('click', (e) => {
+  if (e.target.classList.contains('piza-cards__items') ||
+  e.target.classList.contains('piza-cards__items-img') ||
+  e.target.classList.contains('piza-cards__items-text') ||
+  e.target.classList.contains('cardImg')   ||
+  e.target.classList.contains('cardTitle')  ||
+  e.target.classList.contains('description') ||
+  e.target.classList.contains('btn-price') ||
+  e.target.classList.contains('btn-price__wrapper')
+     ) {
+    getId(e.target.id)
+    modalOverlay.classList.remove('hidden')
+  }
+})
+
+
+// goshtli.addEventListener('click', (e) => {
+  if (e.target.classList.contains('piza-cards__items') ||
+  e.target.classList.contains('piza-cards__items-img') ||
+  e.target.classList.contains('piza-cards__items-text') ||
+  e.target.classList.contains('cardImg')   ||
+  e.target.classList.contains('cardTitle')  ||
+  e.target.classList.contains('description') ||
+  e.target.classList.contains('btn-price') ||
+  e.target.classList.contains('btn-price__wrapper')
+     ) {
+    getId(e.target.id)
+    modalOverlay.classList.remove('hidden')
+  }
+  // })
+
+
+
+  // pishloqli.addEventListener('click', (e) => {
+      if (e.target.classList.contains('piza-cards__items') ||
+  e.target.classList.contains('piza-cards__items-img') ||
+  e.target.classList.contains('piza-cards__items-text') ||
+  e.target.classList.contains('cardImg')   ||
+  e.target.classList.contains('cardTitle')  ||
+  e.target.classList.contains('description') ||
+  e.target.classList.contains('btn-price') ||
+  e.target.classList.contains('btn-price__wrapper')
+     ) {
+    getId(e.target.id)
+    modalOverlay.classList.remove('hidden')
+  }
+// })
+
+
+
+// qoziqornli.addEventListener('click', (e) => {
+      if (e.target.classList.contains('piza-cards__items') ||
+  e.target.classList.contains('piza-cards__items-img') ||
+  e.target.classList.contains('piza-cards__items-text') ||
+  e.target.classList.contains('cardImg')   ||
+  e.target.classList.contains('cardTitle')  ||
+  e.target.classList.contains('description') ||
+  e.target.classList.contains('btn-price') ||
+  e.target.classList.contains('btn-price__wrapper')
+     ) {
+    getId(e.target.id)
+    modalOverlay.classList.remove('hidden')
+  }
+// })
+
+
+// achiq.addEventListener('click', (e) => {
+      if (e.target.classList.contains('piza-cards__items') ||
+  e.target.classList.contains('piza-cards__items-img') ||
+  e.target.classList.contains('piza-cards__items-text') ||
+  e.target.classList.contains('cardImg')   ||
+  e.target.classList.contains('cardTitle')  ||
+  e.target.classList.contains('description') ||
+  e.target.classList.contains('btn-price') ||
+  e.target.classList.contains('btn-price__wrapper')
+     ) {
+    getId(e.target.id)
+    modalOverlay.classList.remove('hidden')
+  }
+
+// })
+
+
+eski variyanti
+
+// achiq.addEventListener('click', (e) => {
+//   if (e.target.classList.contains('piza-cards__items') ||
+//   e.target.classList.contains('piza-cards__items-img') ||
+//   e.target.classList.contains('piza-cards__items-text') ||
+//   e.target.classList.contains('cardImg')   ||
+//   e.target.classList.contains('cardTitle')  ||
+//   e.target.classList.contains('description') ||
+//   e.target.classList.contains('btn-price') ||
+//   e.target.classList.contains('btn-price-wrapper')
+//      ) {
+//     modalOverlay.classList.remove('hidden')
+//     const cards = document.querySelectorAll('.achiqCard')
+//     cards.forEach(items => {
+//       const cardsClone = items.cloneNode(true)
+//       const cardsImg = items.querySelector('.cardImg')
+//       const cardsTitle = items.querySelector('h6')
+//       const cardsText = items.querySelector('.description')
+//       const cardsPrice = items.querySelector('.card-price')
+
+//       items.addEventListener('click', () => {
+//         modalTitle.textContent = cardsTitle.textContent
+//         modalImg.src = cardsImg.src
+//         modalText.textContent = cardsText.textContent
+//         ModalPrice.textContent = cardsPrice.textContent
+
+//       })
+//     })
+
+//   }
+
+// })
+
+*/
+
+
+/* 
+root 
+    data.forEach(item => {
+      
+    pizzaCards.innerHTML += `
+    <div class="piza-cards__items achiqCard" id="${item.id}" onclick="itemId(${item.id})" title="click for order Pitsa">
+    <div class="piza-cards__items-img" id="${item.id}">
+      <img src="${item.image}" class="cardImg"  alt="${item.title}" name="image" id="${item.id}">
+    </div>
+    <div class="piza-cards__items-text" id="${item.id}">
+      <h6 name="title" class="cardTitle" id="${item.id}">
+      ${item.title}
+      </h6>
+      <p name="description" class="description" id="${item.id}">
+      ${item.description}
+      </p>
+    </div>
+  <div class="btn-price__wrapper" id="${item.id}">
+    <button type="button" class="btn-price" id="${item.id}">
+      <b>${item.price}</b>
+    </button>
+  </div>
+  </div>
+    `
+ });
+
+
+*/
